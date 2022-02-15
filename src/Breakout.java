@@ -11,14 +11,15 @@ public class Breakout extends GraphicsProgram {
     private Paddle paddle;
 
     public int lives=3;
-
+    public int points;
     public int numBricksInRow;
 
 
-    private Color[] rowColors = {Color.red, Color.red, Color.BLUE, Color.BLUE, Color.GRAY, Color.gray, Color.darkGray, Color.darkGray, Color.black, Color.black};
+    private Color[] rowColors = { Color.black, Color.black, Color.darkGray, Color.darkGray,  Color.GRAY, Color.gray, Color.LIGHT_GRAY, Color.lightGray, Color.white, Color.white};
 
 
     public GLabel lifeCounter = new GLabel("lives left = "+String.valueOf(lives));
+    public GLabel POINTS = new GLabel("points"+points);
 
     //comment
 
@@ -40,6 +41,8 @@ public class Breakout extends GraphicsProgram {
         }
 
         add(lifeCounter,50,50);
+        add(POINTS, 500,50);
+
 
 
 
@@ -118,7 +121,8 @@ public class Breakout extends GraphicsProgram {
             ((Brick) obj).brickLives --;
             if(((Brick) obj).brickLives == 0){
                 this.remove(obj);
-
+                points++;
+                POINTS.setLabel("points"+points);
             }
             ball.bounce();
 
