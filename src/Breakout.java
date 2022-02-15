@@ -20,6 +20,8 @@ public class Breakout extends GraphicsProgram {
 
     public GLabel lifeCounter = new GLabel("lives left = "+String.valueOf(lives));
 
+    //comment
+
     @Override
     public void init(){
         ball = new Ball(getWidth()/2, 350, 10, this.getGCanvas());
